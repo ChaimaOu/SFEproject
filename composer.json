@@ -1,0 +1,12 @@
+{
+    "name": "chaima/projet1",
+    "description": "aaa",
+    "autoload": {
+        "psr-4": {
+            "Chaima\\Projet1\\": "src/"
+        }
+    },
+    "require": {
+        "google/apiclient": "2.0"
+    }
+}

@@ -1,0 +1,410 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    /* Updated gradient with white in the middle */
+    background: linear-gradient(to bottom, 
+      #f79d4d 0%, 
+      #f58220 20%, 
+      #ffffff 50%, 
+      #4783d6 80%, 
+      #1964cc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Decorative elements - visible on all screens */
+  .decorative-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none; /* Make sure it doesn't interfere with clicks */
+  }
+  
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+  }
+  
+  .circle-1 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #f58220, #f79d4d);
+    top: 10%;
+    right: 5%;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .circle-2 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #1964cc, #4783d6);
+    bottom: 10%;
+    left: 5%;
+    animation: float 6s ease-in-out infinite reverse;
+  }
+  
+  .circle-3 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #f58220, #1964cc);
+    top: 40%;
+    left: 10%;
+    animation: float 10s ease-in-out infinite 1s;
+  }
+  
+  /* Mobile Layout */
+  .mobile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .logo-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .logo-mobile .logo {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .tagline-mobile {
+    text-align: center;
+    margin-top: 0.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .tagline-mobile p {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+  }
+  
+  .form-container-mobile {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 5;
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  /* Desktop Layout - hidden on mobile */
+  .desktop-container {
+    display: none;
+  }
+  
+  /* Logo styles for desktop - hidden on mobile */
+  .logo-desktop {
+    display: none;
+  }
+  
+  /* Tagline styles for desktop - hidden on mobile */
+  .tagline {
+    display: none;
+  }
+  
+  /* Form styles */
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .title {
+    color: #1E40AF;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  .subtitle {
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group {
+    position: relative;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: rgba(253, 232, 210, 0.7);
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(245, 130, 32, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .submit-button {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    background: linear-gradient(to right, #f58220, #1964cc);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  /* Social login styles */
+  .social-login {
+    margin-top: 2rem;
+  }
+  
+  .social-text {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .social-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.375rem;
+    background-color: rgba(251, 207, 166, 0.8);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.3s ease;
+  }
+  
+  .social-button:hover {
+    background-color: rgba(251, 207, 166, 1);
+    transform: translateY(-2px);
+  }
+  
+  /* Terms styles */
+  .terms {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #333;
+  }
+  
+  .terms-highlight {
+    color: #f58220;
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1400px; /* Increased max-width for more space */
+    }
+  
+    /* Hide mobile layout on desktop */
+    .mobile-container {
+      display: none;
+    }
+  
+    /* Show desktop layout */
+    .desktop-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 3rem;
+      gap: 2rem; /* Add gap between logo and form */
+      position: relative;
+      z-index: 5;
+    }
+  
+    /* Update decorative elements for desktop */
+    .circle-1 {
+      width: 300px;
+      height: 300px;
+      top: -100px;
+      left: 20%;
+    }
+  
+    .circle-2 {
+      width: 200px;
+      height: 200px;
+      bottom: -50px;
+      left: 30%;
+    }
+  
+    .circle-3 {
+      width: 150px;
+      height: 150px;
+      top: 40%;
+      left: 10%;
+    }
+  
+    .logo-desktop {
+      display: flex;
+      flex-direction: column;
+      width: 50%; /* Take up half the container */
+      justify-content: center; /* Center the logo horizontally */
+      align-items: center; /* Center the logo vertically */
+      position: relative;
+      z-index: 5;
+      animation: fadeIn 1s ease-in-out;
+    }
+  
+    .logo-desktop .logo {
+      width: 450px; /* Make logo bigger */
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  
+    /* Tagline styles - visible on desktop */
+    .tagline {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+  
+    .tagline h2 {
+      font-size: 2rem;
+      color: #1E40AF;
+      margin-bottom: 0.5rem;
+    }
+  
+    .tagline p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+  
+    .form-container {
+      width: 450px; /* Increased width for form container */
+      max-width: 50%; /* Take up to half the container */
+      margin: 0; /* Remove auto margins */
+      /* Removed box styling as requested */
+      animation: slideIn 0.8s ease-out;
+    }
+  
+    .title {
+      font-size: 3rem; /* Larger title */
+    }
+  
+    .subtitle {
+      font-size: 1.1rem; /* Larger subtitle */
+    }
+  
+    input {
+      padding: 1.2rem 1rem 1.2rem 3rem; /* Taller input fields */
+      font-size: 1.1rem; /* Larger font */
+    }
+  
+    .submit-button {
+      padding: 1.2rem; /* Taller button */
+      font-size: 1.1rem; /* Larger font */
+    }
+  
+    .social-button {
+      padding: 1rem; /* Taller social buttons */
+      font-size: 1.1rem; /* Larger font */
+    }
+  
+    /* Change button text for desktop */
+    #submitButton {
+      content: "Sign up";
+    }
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
